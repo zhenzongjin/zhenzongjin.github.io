@@ -7,16 +7,16 @@
   
   <title>k8s中的存储学习 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="k8s中到底有哪些存储机制被我们利用？ConfigMap描述信息k8s 1.2版本中引入，因为许多应用程序会从配置文件、命令行参数或者环境变量中读取配置信息 。ConfigMap API 给我们提供了向容器中注入配置信息的机制。 可以保存单个属性，也可以用来保存整个配置文件或者JSON二进制大对象 ![image-20200805095055372](C:\Users\ZHEN ZONGJIN">
+  <meta name="description" content="k8s中到底有哪些存储机制被我们利用？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="k8s中的存储学习">
 <meta property="og:url" content="http://yoursite.com/2020/08/07/k8s-%E5%AD%98%E5%82%A8%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="k8s中到底有哪些存储机制被我们利用？ConfigMap描述信息k8s 1.2版本中引入，因为许多应用程序会从配置文件、命令行参数或者环境变量中读取配置信息 。ConfigMap API 给我们提供了向容器中注入配置信息的机制。 可以保存单个属性，也可以用来保存整个配置文件或者JSON二进制大对象 ![image-20200805095055372](C:\Users\ZHEN ZONGJIN">
+<meta property="og:description" content="k8s中到底有哪些存储机制被我们利用？">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/ZHEN%20ZONGJIN/AppData/Roaming/Typora/typora-user-images/image-20200806093101242.png">
 <meta property="article:published_time" content="2020-08-07T11:17:07.696Z">
-<meta property="article:modified_time" content="2020-08-07T11:17:59.849Z">
+<meta property="article:modified_time" content="2020-08-07T11:20:20.810Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/ZHEN%20ZONGJIN/AppData/Roaming/Typora/typora-user-images/image-20200806093101242.png">
@@ -90,9 +90,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <p><strong>k8s中到底有哪些存储机制被我们利用？</strong></p>
+<a id="more"></a>
 
-<h1 id="k8s中到底有哪些存储机制被我们利用？"><a href="#k8s中到底有哪些存储机制被我们利用？" class="headerlink" title="k8s中到底有哪些存储机制被我们利用？"></a><strong>k8s中到底有哪些存储机制被我们利用？</strong></h1><h2 id="ConfigMap描述信息"><a href="#ConfigMap描述信息" class="headerlink" title="ConfigMap描述信息"></a>ConfigMap描述信息</h2><p><strong>k8s 1.2版本中引入，因为许多应用程序会从配置文件、命令行参数或者环境变量中读取配置信息 。ConfigMap API 给我们提供了向容器中注入配置信息的机制。</strong></p>
+<h2 id="ConfigMap描述信息"><a href="#ConfigMap描述信息" class="headerlink" title="ConfigMap描述信息"></a>ConfigMap描述信息</h2><p><strong>k8s 1.2版本中引入，因为许多应用程序会从配置文件、命令行参数或者环境变量中读取配置信息 。ConfigMap API 给我们提供了向容器中注入配置信息的机制。</strong></p>
 <p><strong>可以保存单个属性，也可以用来保存整个配置文件或者JSON二进制大对象</strong></p>
 <p>![image-20200805095055372](C:\Users\ZHEN ZONGJIN\AppData\Roaming\Typora\typora-user-images\image-20200805095055372.png)</p>
 <p>——&gt;&gt;&gt;&gt;configMap</p>

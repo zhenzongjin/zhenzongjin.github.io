@@ -7,19 +7,19 @@
   
   <title>Service的概念 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Service的概念导入： 假如有这样一个情况：使用deployment创建了3个pod（如php-nginx模块），其中另外一个deployment（nginx）会调用前一个deployment中的pod的地址信息，假如其中一个pod死掉了，那么deployment会重新创建一个pod，但是ip地址就会变换，导致nginx中存写的ip地址会与新创建的pod ip地址不一致，调用出错。 ![i">
+  <meta name="description" content="k8s中到底有哪些存储机制被我们利用？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Service的概念">
 <meta property="og:url" content="http://yoursite.com/2020/08/07/6.Service%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Service的概念导入： 假如有这样一个情况：使用deployment创建了3个pod（如php-nginx模块），其中另外一个deployment（nginx）会调用前一个deployment中的pod的地址信息，假如其中一个pod死掉了，那么deployment会重新创建一个pod，但是ip地址就会变换，导致nginx中存写的ip地址会与新创建的pod ip地址不一致，调用出错。 ![i">
+<meta property="og:description" content="k8s中到底有哪些存储机制被我们利用？">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/ZHEN%20ZONGJIN/AppData/Roaming/Typora/typora-user-images/image-20200804102445025.png">
 <meta property="og:image" content="c:/Users/ZHEN%20ZONGJIN/AppData/Roaming/Typora/typora-user-images/image-20200804103207282.png">
 <meta property="og:image" content="c:/Users/ZHEN%20ZONGJIN/AppData/Roaming/Typora/typora-user-images/image-20200804104108388.png">
 <meta property="og:image" content="c:/Users/ZHEN%20ZONGJIN/AppData/Roaming/Typora/typora-user-images/image-20200804105344634.png">
 <meta property="article:published_time" content="2020-08-07T11:15:14.477Z">
-<meta property="article:modified_time" content="2020-08-07T11:16:55.201Z">
+<meta property="article:modified_time" content="2020-08-07T11:28:46.129Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/ZHEN%20ZONGJIN/AppData/Roaming/Typora/typora-user-images/image-20200804102445025.png">
@@ -93,7 +93,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <p>k8s中到底有哪些存储机制被我们利用？</p>
+<a id="more"></a>
 
 <h2 id="Service的概念"><a href="#Service的概念" class="headerlink" title="Service的概念"></a>Service的概念</h2><p><strong>导入：</strong></p>
 <p>假如有这样一个情况：使用deployment创建了3个pod（如php-nginx模块），其中另外一个deployment（nginx）会调用前一个deployment中的pod的地址信息，假如其中一个pod死掉了，那么deployment会重新创建一个pod，但是ip地址就会变换，导致nginx中存写的ip地址会与新创建的pod ip地址不一致，调用出错。</p>

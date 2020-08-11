@@ -20,19 +20,22 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="你好，我的第一个博客！欢迎访问">
+  <meta name="description" content="api service 是整个k8s中很重要的组件，他的安全性稳定性影响着整个集群的鲁棒性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nihao,hexo">
-<meta property="og:url" content="http://yoursite.com/2020/08/07/nihao-hexo/index.html">
+<meta property="og:title" content="9.K8s-安全学习">
+<meta property="og:url" content="http://yoursite.com/2020/08/10/9%E3%80%81Kubernetes%20-%20%E5%AE%89%E5%85%A8/index.html">
 <meta property="og:site_name" content="ZHENZONGJIN">
-<meta property="og:description" content="你好，我的第一个博客！欢迎访问">
+<meta property="og:description" content="api service 是整个k8s中很重要的组件，他的安全性稳定性影响着整个集群的鲁棒性。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-08-07T10:43:25.525Z">
-<meta property="article:modified_time" content="2020-08-10T00:17:26.321Z">
+<meta property="og:image" content="http://yoursite.com/2020/08/10/9%E3%80%81Kubernetes%20-%20%E5%AE%89%E5%85%A8/image-20200810104002075.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/10/9%E3%80%81Kubernetes%20-%20%E5%AE%89%E5%85%A8/image-20200810104317772.png">
+<meta property="article:published_time" content="2020-08-10T02:12:26.662Z">
+<meta property="article:modified_time" content="2020-08-10T03:36:00.516Z">
 <meta property="article:author" content="zzj">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/10/9%E3%80%81Kubernetes%20-%20%E5%AE%89%E5%85%A8/image-20200810104002075.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/08/07/nihao-hexo/">
+<link rel="canonical" href="http://yoursite.com/2020/08/10/9%E3%80%81Kubernetes%20-%20%E5%AE%89%E5%85%A8/">
 
 
 <script id="page-configurations">
@@ -45,7 +48,7 @@
   };
 </script>
 
-  <title>nihao,hexo | ZHENZONGJIN</title>
+  <title>9.K8s-安全学习 | ZHENZONGJIN</title>
   
 
 
@@ -150,7 +153,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/07/nihao-hexo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/10/9%E3%80%81Kubernetes%20-%20%E5%AE%89%E5%85%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +166,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          nihao,hexo
+          9.K8s-安全学习
         </h1>
 
         <div class="post-meta">
@@ -172,16 +175,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-08-07 18:43:25" itemprop="dateCreated datePublished" datetime="2020-08-07T18:43:25+08:00">2020-08-07</time>
+              <time title="Created: 2020-08-10 10:12:26 / Modified: 11:36:00" itemprop="dateCreated datePublished" datetime="2020-08-10T10:12:26+08:00">2020-08-10</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-10 08:17:26" itemprop="dateModified" datetime="2020-08-10T08:17:26+08:00">2020-08-10</time>
-              </span>
 
           
 
@@ -194,7 +191,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>你好，我的第一个博客！欢迎访问</p>
+        <p>api service 是整个k8s中很重要的组件，他的安全性稳定性影响着整个集群的鲁棒性。</p>
+<a id="more"></a>
+
+<h2 id="机制说明"><a href="#机制说明" class="headerlink" title="机制说明"></a>机制说明</h2><p>![image-20200810101748781](9、Kubernetes - 安全.assets/image-20200810101748781.png)</p>
+<h3 id="认证（Authentication）"><a href="#认证（Authentication）" class="headerlink" title="认证（Authentication）"></a>认证（Authentication）</h3><p>简单的理解就是当pod或者用户需要访问 API server 时需要进行身份的识别认证。有以下几种认证方式：</p>
+<ul>
+<li><p><strong>HTTP Token</strong>：通过一个Token(或者字符串)来识别用户。假如“1234”才是合法用户，你拿着一个1234来认证，那我就认为你是合法用户</p>
+<ul>
+<li>HTTP token 的认证是用一个*<strong>很长的* <em>特殊编码**</em> 方式的并且 *</strong>难以被模仿*** 的字符串-<strong>Token</strong>来表达客户的一种方式。每一个Token对应一个用户存储在 API server 能访问的<strong>文件</strong>中。当客户端发起 API 调用请求时，需要在HTTP Header 里放入 Token  <strong>___ETCD????</strong></li>
+<li>这种放在文件中，不安全</li>
+</ul>
+</li>
+<li><p><strong>HTTP Base:</strong> 通过用户名+密码的方式进行认证</p>
+<ul>
+<li>将用户名+密码用base64方式进行编码，然后将编码后的字符串放在 HTTP Request 中的 Heather Authorization 域里发送给服务端，服务端接收后进行解码，获取用户名+密码</li>
+<li>不安全费劲</li>
+</ul>
+<blockquote>
+<p><strong>前两种方法安全性并不是那么高，都给了服务器认证客户端的机会，但是客户端不能认证服务器，服务器可以认证客户端是否合理合法，但是客户端没办法认证服务器是否合理合法。</strong></p>
+</blockquote>
+</li>
+<li><p><strong>HTTPS 证书：</strong>最严格的认证机制</p>
+<ul>
+<li>基于 CA 根证书签名的客户端身份认证方式，k8s中双向认证。。。</li>
+<li><strong>最常用</strong></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><strong>HTTPS 证书认证：</strong></li>
+</ol>
+<img src="/2020/08/10/9%E3%80%81Kubernetes%20-%20%E5%AE%89%E5%85%A8/image-20200810104002075.png" alt="image-20200810104002075" style="zoom: 33%;">
+
+<ol start="2">
+<li>需要认证的节点</li>
+</ol>
+<img src="/2020/08/10/9%E3%80%81Kubernetes%20-%20%E5%AE%89%E5%85%A8/image-20200810104317772.png" alt="image-20200810104317772" style="zoom: 33%;">
+
 
     </div>
 
@@ -210,12 +244,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/07/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2020/08/10/new-article/" rel="prev" title="new article">
+      <i class="fa fa-chevron-left"></i> new article
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/08/07/%E5%90%84%E7%A7%8D%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="Deployment的使用">
-      Deployment的使用 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/10/10%E3%80%81Kubernetes%20-%20Helm%20%E5%8F%8A%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD%E6%80%A7%E7%BB%84%E4%BB%B6/" rel="next" title="k8s-Helm包管理工具的部署与使用">
+      k8s-Helm包管理工具的部署与使用 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -275,6 +309,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">机制说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A4%E8%AF%81%EF%BC%88Authentication%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">认证（Authentication）</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

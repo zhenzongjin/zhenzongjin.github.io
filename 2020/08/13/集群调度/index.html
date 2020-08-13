@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="k8s-集群调度学习">
+  <meta name="description" content="k8s-集群调度学习：Scheduler是K8s的调度器，主要的任务是把定义的Pod分配到集群的节点上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="9.k8s-集群调度学习">
+<meta property="og:title" content="8.k8s-集群调度学习">
 <meta property="og:url" content="http://yoursite.com/2020/08/13/%E9%9B%86%E7%BE%A4%E8%B0%83%E5%BA%A6/index.html">
 <meta property="og:site_name" content="ZHENZONGJIN">
-<meta property="og:description" content="k8s-集群调度学习">
+<meta property="og:description" content="k8s-集群调度学习：Scheduler是K8s的调度器，主要的任务是把定义的Pod分配到集群的节点上">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/08/13/%E9%9B%86%E7%BE%A4%E8%B0%83%E5%BA%A6/image-20200806142438684.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/13/%E9%9B%86%E7%BE%A4%E8%B0%83%E5%BA%A6/image-20200806142955999.png">
@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/08/13/%E9%9B%86%E7%BE%A4%E8%B0%83%E5%BA%A6/image-20200806164336786.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/13/%E9%9B%86%E7%BE%A4%E8%B0%83%E5%BA%A6/image-20200806164345501.png">
 <meta property="article:published_time" content="2020-08-13T03:20:34.157Z">
-<meta property="article:modified_time" content="2020-08-13T05:26:55.405Z">
+<meta property="article:modified_time" content="2020-08-13T05:37:00.302Z">
 <meta property="article:author" content="zzj">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/08/13/%E9%9B%86%E7%BE%A4%E8%B0%83%E5%BA%A6/image-20200806142438684.png">
@@ -53,7 +53,7 @@
   };
 </script>
 
-  <title>9.k8s-集群调度学习 | ZHENZONGJIN</title>
+  <title>8.k8s-集群调度学习 | ZHENZONGJIN</title>
   
 
 
@@ -186,7 +186,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          9.k8s-集群调度学习
+          8.k8s-集群调度学习
         </h1>
 
         <div class="post-meta">
@@ -197,7 +197,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-08-13 11:20:34 / Modified: 13:26:55" itemprop="dateCreated datePublished" datetime="2020-08-13T11:20:34+08:00">2020-08-13</time>
+              <time title="Created: 2020-08-13 11:20:34 / Modified: 13:37:00" itemprop="dateCreated datePublished" datetime="2020-08-13T11:20:34+08:00">2020-08-13</time>
             </span>
 
           
@@ -211,7 +211,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>k8s-集群调度学习</p>
+        <p>k8s-集群调度学习：Scheduler是K8s的调度器，主要的任务是把定义的Pod分配到集群的节点上</p>
 <a id="more"></a>
 
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Scheduler是K8s的调度器，主要的任务是把定义的Pod分配到集群的节点上</p>
@@ -441,7 +441,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

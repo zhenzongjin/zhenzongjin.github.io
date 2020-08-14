@@ -27,13 +27,12 @@
 <meta property="og:site_name" content="K8s学习记录">
 <meta property="og:description" content="什么是helm？每个成功的软件平台都有一个优秀的打包系统，比如 Debian、Ubuntu 的 apt，Redhat、Centos 的 yum。而 Helm 则是 Kubernetes 上的包管理器。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/08/10/Kubernetes%20-%20Helm%20%E5%8F%8A%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD%E6%80%A7%E7%BB%84%E4%BB%B6/image-20200812081813626.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/10/Kubernetes%20-%20Helm%20%E5%8F%8A%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD%E6%80%A7%E7%BB%84%E4%BB%B6/image-20200811150431791.png">
 <meta property="article:published_time" content="2020-08-10T03:25:54.369Z">
-<meta property="article:modified_time" content="2020-08-13T05:39:12.424Z">
+<meta property="article:modified_time" content="2020-08-14T04:01:00.626Z">
 <meta property="article:author" content="zzj">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/08/10/Kubernetes%20-%20Helm%20%E5%8F%8A%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD%E6%80%A7%E7%BB%84%E4%BB%B6/image-20200812081813626.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/10/Kubernetes%20-%20Helm%20%E5%8F%8A%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD%E6%80%A7%E7%BB%84%E4%BB%B6/image-20200811150431791.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/08/10/Kubernetes%20-%20Helm%20%E5%8F%8A%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD%E6%80%A7%E7%BB%84%E4%BB%B6/">
 
@@ -193,7 +192,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-13 13:39:12" itemprop="dateModified" datetime="2020-08-13T13:39:12+08:00">2020-08-13</time>
+                <time title="Modified: 2020-08-14 12:01:00" itemprop="dateModified" datetime="2020-08-14T12:01:00+08:00">2020-08-14</time>
               </span>
 
           
@@ -223,7 +222,7 @@
 <li>比较像docker 中的 镜像和容器的感觉</li>
 </ul>
 <p>Helm 包含两个组件：<strong>Helm 客户端和 Tiller 服务器</strong>，如下图所示</p>
-<p><img src="/2020/08/10/Kubernetes%20-%20Helm%20%E5%8F%8A%E5%85%B6%E5%AE%83%E5%8A%9F%E8%83%BD%E6%80%A7%E7%BB%84%E4%BB%B6/image-20200812081813626.png" alt="image-20200812081813626"></p>
+<p>![image-20200812081813626](Kubernetes - Helm 及其它功能性组件/image-20200812081813626.png)</p>
 <p><strong>Helm</strong> <strong>客户端负责 chart 和 release 的创建和管理以及和 Tiller 的交互</strong>。<strong>Tiller 服务器运行在 Kubernetes 集群中，它会处理 Helm 客户端的请求，与 Kubernetes API Server 交互</strong></p>
 <h2 id="Helm-部署"><a href="#Helm-部署" class="headerlink" title="Helm 部署"></a>Helm 部署</h2><p>越来越多的公司和团队开始使用 Helm 这个 Kubernetes 的包管理器，我们也将使用 Helm 安装 Kubernetes 的常用组件。 Helm 由客户端命令行工具 helm 和服务端 tiller 组成，Helm 的安装十分简单。 下载 helm 命令行工具到master 节点 node1 的 /usr/local/bin 下，这里下载的 2.13. 1版本：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ntpdate ntp1.aliyun.com ##时间同步，选做</span><br><span class="line">wget https://storage.googleapis.com/kubernetes-helm/helm-v2.13.1-linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
@@ -232,8 +231,8 @@
 <p>这个下载不动可以去 <strong>Github</strong>上进行手动下载helm的相关版本</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/helm/helm/releases">https://github.com/helm/helm/releases</a></p>
 <p>我们这里下载的2.13.1</p>
-<p>![image-20200810144132676](10、Kubernetes - Helm 及其它功能性组件/image-20200810144132676.png)</p>
-<p>![image-20200810145333369](10、Kubernetes - Helm 及其它功能性组件/image-20200810145333369.png)</p>
+<p>![image-20200810144132676](Kubernetes - Helm 及其它功能性组件/image-20200810144132676.png)</p>
+<p>![image-20200810145333369](Kubernetes - Helm 及其它功能性组件/image-20200810145333369.png)</p>
 <p>将linux-amd64/helm文件添加到/usr/local/bin/并授权</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-master helm]# cp -a linux-amd64/helm /usr/local/bin/</span><br><span class="line">[root@k8s-master helm]# chmod a+x /usr/local/bin/helm </span><br></pre></td></tr></table></figure>
 
@@ -250,24 +249,24 @@
 <p>helm部署（<strong>实际上部署之前应该在各个节点先拉取镜像</strong>，排坑在后面）</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-master helm]# helm init --service-account tiller --skip-refresh</span><br></pre></td></tr></table></figure>
 
-<p>![image-20200810151817597](10、Kubernetes - Helm 及其它功能性组件/image-20200810151817597.png)</p>
+<p>![image-20200810151817597](Kubernetes - Helm 及其它功能性组件/image-20200810151817597.png)</p>
 <p><strong>这里出现了问题</strong></p>
-<p>![image-20200810150906909](10、Kubernetes - Helm 及其它功能性组件/image-20200810150906909.png)</p>
+<p>![image-20200810150906909](Kubernetes - Helm 及其它功能性组件/image-20200810150906909.png)</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-master helm]# kubectl describe pod -n kube-system tiller-deploy-<span class="number">6</span>d47785b7c-vhqw5 </span><br></pre></td></tr></table></figure>
 
-<p>![image-20200810151055915](10、Kubernetes - Helm 及其它功能性组件/image-20200810151055915.png)</p>
+<p>![image-20200810151055915](Kubernetes - Helm 及其它功能性组件/image-20200810151055915.png)</p>
 <p>可以看到是节点上下载镜像失败</p>
 <p># 安装 helm-tiller的docker镜像（k8s所有节点上都pull） </p>
 <p>然后去各个节点上下载所需镜像</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-master helm]# docker search tiller:v2.<span class="number">13</span>.<span class="number">1</span>                </span><br></pre></td></tr></table></figure>
 
-<p>![image-20200810151742449](10、Kubernetes - Helm 及其它功能性组件/image-20200810151742449.png)</p>
+<p>![image-20200810151742449](Kubernetes - Helm 及其它功能性组件/image-20200810151742449.png)</p>
 <p>拉取镜像并打上标签</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-master helm]# docker pull hekai/gcr.io_kubernetes-helm_tiller_v2.<span class="number">13</span>.<span class="number">1</span></span><br><span class="line">Using default tag: latest</span><br><span class="line"><span class="function">latest: <span class="title">Pulling</span> <span class="title">from</span> <span class="title">hekai</span>/<span class="title">gcr.io_kubernetes</span>-<span class="title">helm_tiller_v2</span>.13.1</span></span><br><span class="line"><span class="function">5<span class="title">d20c808ce19</span>: <span class="title">Pull</span> <span class="title">complete</span> </span></span><br><span class="line"><span class="function">43339<span class="title">c468bb6</span>: <span class="title">Pull</span> <span class="title">complete</span> </span></span><br><span class="line"><span class="function"><span class="title">d6d696e230df</span>: <span class="title">Pull</span> <span class="title">complete</span> </span></span><br><span class="line"><span class="function">9<span class="title">cf2c942cf64</span>: <span class="title">Pull</span> <span class="title">complete</span> </span></span><br><span class="line"><span class="function"><span class="title">Digest</span>: <span class="title">sha256:d52b34a9f9aeec1cf74155ca51fcbb5d872a705914565c782be4531790a4ee0e</span></span></span><br><span class="line"><span class="function"><span class="title">Status</span>: <span class="title">Downloaded</span> <span class="title">newer</span> <span class="title">image</span> <span class="title">for</span> <span class="title">hekai</span>/<span class="title">gcr.io_kubernetes</span>-<span class="title">helm_tiller_v2</span>.13.1:<span class="title">latest</span></span></span><br><span class="line"><span class="function"><span class="title">docker.io</span>/<span class="title">hekai</span>/<span class="title">gcr.io_kubernetes</span>-<span class="title">helm_tiller_v2</span>.13.1:<span class="title">latest</span></span></span><br><span class="line"><span class="function">[<span class="title">root</span>@<span class="title">k8s</span>-<span class="title">master</span> <span class="title">helm</span>]# <span class="title">docker</span> <span class="title">tag</span> <span class="title">hekai</span>/<span class="title">gcr.io_kubernetes</span>-<span class="title">helm_tiller_v2</span>.13.1:<span class="title">latest</span> <span class="title">gcr.io</span>/<span class="title">kubernetes</span>-<span class="title">helm</span>/<span class="title">tiller:v2</span>.13.1</span></span><br></pre></td></tr></table></figure>
 
 <p>在各个节点都下载完镜像之后去主节点重新 <code>helm init --service-account tiller --skip-refresh</code> </p>
 <p><strong>问题解决！成功running</strong></p>
-<p>![image-20200810152333290](10、Kubernetes - Helm 及其它功能性组件/image-20200810152333290.png)</p>
+<p>![image-20200810152333290](Kubernetes - Helm 及其它功能性组件/image-20200810152333290.png)</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@k8s-master ~]# helm version   #查看helm的版本信息</span><br><span class="line"><span class="function">Client: &amp;<span class="title">version.Version</span>&#123;<span class="title">SemVer</span>:&quot;<span class="title">v2</span>.13.1&quot;, <span class="title">GitCommit</span>:&quot;618447<span class="title">cbf203d147601b4b9bd7f8c37a5d39fbb4</span>&quot;, <span class="title">GitTreeState</span>:&quot;<span class="title">clean</span>&quot;&#125;</span></span><br><span class="line"><span class="function"><span class="title">Server</span>: &amp;<span class="title">version.Version</span>&#123;<span class="title">SemVer</span>:&quot;<span class="title">v2</span>.13.1&quot;, <span class="title">GitCommit</span>:&quot;618447<span class="title">cbf203d147601b4b9bd7f8c37a5d39fbb4</span>&quot;, <span class="title">GitTreeState</span>:&quot;<span class="title">clean</span>&quot;&#125;</span></span><br></pre></td></tr></table></figure>
 
 
@@ -288,7 +287,7 @@
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 使用命令 helm install RELATIVE_PATH_TO_CHART 创建一次Release</span><br><span class="line"># 注意，必须在当前文件夹下面使用</span><br><span class="line"></span><br><span class="line"># 运行chart</span><br><span class="line"># helm install --name &lt;名字&gt; .</span><br><span class="line"># --name 可指定一个固定的名字，如果没有指定，helm会生成一个随机的名字</span><br><span class="line"></span><br><span class="line">[root@k8s-master hello-word]# helm install .</span><br><span class="line"><span class="function">NAME:   <span class="title">tan</span>-<span class="title">worm</span></span></span><br><span class="line"><span class="function"><span class="title">LAST</span> <span class="title">DEPLOYED</span>: <span class="title">Tue</span> <span class="title">Aug</span> 11 11:17:51 2020</span></span><br><span class="line"><span class="function"><span class="title">NAMESPACE</span>: <span class="title">default</span></span></span><br><span class="line"><span class="function"><span class="title">STATUS</span>: <span class="title">DEPLOYED</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">RESOURCES</span>:</span></span><br><span class="line"><span class="function">==&gt; <span class="title">v1</span>/<span class="title">Pod</span>(<span class="title">related</span>)</span></span><br><span class="line"><span class="function"><span class="title">NAME</span>                          <span class="title">READY</span>  <span class="title">STATUS</span>             <span class="title">RESTARTS</span>  <span class="title">AGE</span></span></span><br><span class="line"><span class="function"><span class="title">hello</span>-<span class="title">world</span>-869<span class="title">c9f6dcf</span>-62<span class="title">xr5</span>  0/1    <span class="title">ContainerCreating</span>  0         0<span class="title">s</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">==&gt; <span class="title">v1</span>/<span class="title">Service</span></span></span><br><span class="line"><span class="function"><span class="title">NAME</span>         <span class="title">TYPE</span>      <span class="title">CLUSTER</span>-<span class="title">IP</span>      <span class="title">EXTERNAL</span>-<span class="title">IP</span>  <span class="title">PORT</span>(<span class="title">S</span>)       <span class="title">AGE</span></span></span><br><span class="line"><span class="function"><span class="title">hello</span>-<span class="title">world</span>  <span class="title">NodePort</span>  10.111.111.180  &lt;<span class="title">none</span>&gt;       80:31087/<span class="title">TCP</span>  0<span class="title">s</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">==&gt; <span class="title">v1beta1</span>/<span class="title">Deployment</span></span></span><br><span class="line"><span class="function"><span class="title">NAME</span>         <span class="title">READY</span>  <span class="title">UP</span>-<span class="title">TO</span>-<span class="title">DATE</span>  <span class="title">AVAILABLE</span>  <span class="title">AGE</span></span></span><br><span class="line"><span class="function"><span class="title">hello</span>-<span class="title">world</span>  0/1    1           0          0<span class="title">s</span></span></span><br></pre></td></tr></table></figure>
 
 <p>这时候可以去浏览器访问 IP:30990 </p>
-<p>![image-20200811143910747](10、Kubernetes - Helm 及其它功能性组件/image-20200811143910747.png)</p>
+<p>![image-20200811143910747](Kubernetes - Helm 及其它功能性组件/image-20200811143910747.png)</p>
 <p>如果把这个目录打包发给别人，就可以使用helm 部署这样一个应用程序</p>
 <p>还可以打包一个集群，写入到Chart中，然后使用helm运行chart产生一个release实例。类似于docker 中的 镜像-容器 </p>
 <p><strong>一些常用命令：</strong></p>
@@ -421,9 +420,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
